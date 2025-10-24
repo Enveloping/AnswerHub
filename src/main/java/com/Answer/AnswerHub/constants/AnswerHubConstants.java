@@ -12,14 +12,13 @@ public class AnswerHubConstants {
         public static final String GRANT_TYPE = "grant_type";
         public static final String GRANT_TYPE_VALUE = "authorization_code";
         public static final String USER_TYPE = "user_type";
-//        public static final String USER_TYPE_STUDENT = "student";
-//        public static final String USER_TYPE_TEACHER = "teacher";
+
     }
 
     public static final class AUTHORITY{
-        public static final String STUDENT = "ROLE_STUDENT";
-        public static final String TEACHER = "ROLE_TEACHER";
-        public static final String ADMIN = "ROLE_ADMIN";
+        public static final String STUDENT = "role_student";
+        public static final String TEACHER = "role_teacher";
+        public static final String ADMIN = "role_admin";
     }
 
     public static final class REDIS_KEY{

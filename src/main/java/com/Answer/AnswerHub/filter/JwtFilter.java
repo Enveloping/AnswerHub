@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -47,7 +48,10 @@ public class JwtFilter extends OncePerRequestFilter {
                 Map<String,String> userInfo = Map.of(AnswerHubConstants.WX_LOGIN.OPEN_ID,openid,AnswerHubConstants.WX_LOGIN.USER_TYPE,userType);
                 //三个参数表示创建已认证的用户，用户标识，用户凭证（已认证，所以传null），用户权限
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userInfo, null, List.of(new SimpleGrantedAuthority(userType)));
+//                这行代码将创建的auth对象（UsernamePasswordAuthenticationToken）设置到当前线程的SecurityContext中。
+//                这样，后续的代码可以通过SecurityContext获取到当前用户的认证信息，从而实现授权和访问控制。
                 SecurityContextHolder.getContext().setAuthentication(auth);
+
             }
             chain.doFilter(request, response);   // 继续往后走,如果token异常则不会认证，后面的filter会拦截，所以这里直接往后走。
         } finally {

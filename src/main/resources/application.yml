@@ -14,7 +14,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     name: mysql
-    url: jdbc:mysql://sh-cynosdbmysql-grp-8pcbibsk.sql.tencentcdb.com:28523/local_database
+    url: jdbc:mysql://sh-cynosdbmysql-grp-8pcbibsk.sql.tencentcdb.com:28523/answer_hub
     username: root
     password: swx@20251022
 logging:

@@ -1,5 +1,7 @@
 package com.Answer.AnswerHub;
 
+import com.Answer.AnswerHub.constants.AnswerHubConstants;
+import com.Answer.AnswerHub.utils.GetUserInfoUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,8 +15,6 @@ public class AnswerHubApplicationTests {
 
     @Test
     void test(){
-        System.out.println(redisTemplate.opsForValue().get("name"));
-        System.out.println(redisTemplate.opsForValue().get("zero"));
-        System.out.println(redisTemplate.opsForValue().get("one"));
+
     }
 }
